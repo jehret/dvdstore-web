@@ -8,7 +8,9 @@
 <H1>DVDStore : LA boutique de DVD en ligne</H1>
 <table border="1">
     <tr th:each="movie: ${movies}">
-        <td th:text="${movie.title}"></td>
+        <td>
+            <a th:href="@{/movie/{id}(id=${movie.id})}" th:text="${movie.title}"/>
+        </td>
         <td th:text="${movie.genre}"></td>
     </tr>
 </table>
