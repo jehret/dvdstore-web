@@ -30,7 +30,8 @@ public class HomeController {
 
     @GetMapping("/add-movie-form")
     public void displayMovieForm(@ModelAttribute Movie movie){
-
+        //vous pourriez même supprimer l'annotation @ModelAttribute si vous ne comptez
+        //pas donner un identifiant personnalisé au backing bean
     }
 
 }

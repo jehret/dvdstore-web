@@ -32,6 +32,8 @@ public class MovieController {
 
     @PostMapping
     public String addMovie(@ModelAttribute Movie movie){
+        //vous pourriez même supprimer l'annotation @ModelAttribute si vous ne comptez
+        //pas donner un identifiant personnalisé au backing bean
         movieService.registerMovie(movie);
         return "movie-added";
     }
