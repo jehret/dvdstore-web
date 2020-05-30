@@ -2,11 +2,14 @@ package com.mycompany.dvdstore.web.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
+import com.mycompany.dvdstore.web.form.MovieForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Scanner;
 
 @Controller
@@ -31,9 +34,16 @@ public class MovieController {
     }
 
     @PostMapping
-    public String addMovie(@ModelAttribute Movie movie){
-        //vous pourriez même supprimer l'annotation @ModelAttribute si vous ne comptez
-        //pas donner un identifiant personnalisé au backing bean
+    public String addMovie(@Valid @ModelAttribute MovieForm form, BindingResult results){
+
+        if (results.hasErrors()){
+            return "add-movie-form";
+        }
+        Movie movie = new Movie();
+        movie.setTitle(form.getTitle());
+        movie.setGenre(form.getGenre());
+        movie.setDescription(form.getDescription());
+
         movieService.registerMovie(movie);
         return "movie-added";
     }
