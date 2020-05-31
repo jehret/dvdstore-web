@@ -10,6 +10,7 @@
     <p>
         <input type="text" th:field="*{title}"/>
     </p>
+    <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
     <p>Genre</p>
     <p>
     <select th:field="*{genre}">
@@ -18,11 +19,15 @@
         <option th:value="THRILLER" th:text="Thriller"></option>
         <option th:value="ACTION" th:text="Action"></option>
         <option th:value="ROMANTIQUE" th:text="Romantique"></option>
+        <option th:value="DRAME" th:text="Drame"></option>
+        <option th:value="ANIMATION" th:text="Animation"></option>
     </select>
     </p>
+    <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
 
     <p>Description</p>
     <p><textarea rows="4" cols="50" th:field="*{description}"/></p>
+    <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
     <input type="submit" value="Ajouter"/>
 </form>
 
