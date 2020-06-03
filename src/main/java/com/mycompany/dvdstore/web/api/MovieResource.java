@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 @RestController
 @RequestMapping("/movie")
-public class MovieController {
+public class MovieResource {
 
     @Autowired
     private MovieServiceInterface movieService;
