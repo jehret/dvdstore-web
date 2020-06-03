@@ -4,6 +4,7 @@ import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,13 @@ public class MovieController {
     public void setMovieService(MovieServiceInterface movieService) {
         this.movieService = movieService;
     }
+
+    /*
+    @GetMapping("/{id}")
+    public String displayMovieCard(@PathVariable("id") long id, Model model){
+        model.addAttribute("movie",movieService.getMovieById(id));
+        return "movie-details";
+    }*/
 
     /*@PostMapping
     public String addMovie(@Valid @ModelAttribute MovieForm form, BindingResult results){
