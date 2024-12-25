@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -45,6 +45,9 @@ public class MovieController {
         movie.setTitle(form.getTitle());
         movie.setGenre(form.getGenre());
         movie.setDescription(form.getDescription());
+
+        Actor mainActor=new Actor(form.getFirstName(),form.getLastName());
+        movie.setMainActor(mainActor);
 
         movieService.registerMovie(movie);
         return "movie-added";
