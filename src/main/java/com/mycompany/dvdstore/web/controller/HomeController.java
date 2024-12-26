@@ -1,6 +1,5 @@
 package com.mycompany.dvdstore.web.controller;
 
-import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import com.mycompany.dvdstore.web.form.MovieForm;
 import org.springframework.beans.factory.annotation.Autowired;
