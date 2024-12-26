@@ -4,14 +4,13 @@ import com.mycompany.dvdstore.entity.Actor;
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieServiceInterface;
 import com.mycompany.dvdstore.web.form.MovieForm;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import jakarta.validation.Valid;
-import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/movie")
@@ -36,9 +35,9 @@ public class MovieController {
     }*/
 
     @PostMapping("/add")
-    public String addMovie(@Valid @ModelAttribute MovieForm form, BindingResult results){
+    public String addMovie(@Valid @ModelAttribute MovieForm form, BindingResult results) {
 
-        if (results.hasErrors()){
+        if (results.hasErrors()) {
             return "add-movie-form";
         }
         Movie movie = new Movie();
@@ -46,7 +45,7 @@ public class MovieController {
         movie.setGenre(form.getGenre());
         movie.setDescription(form.getDescription());
 
-        Actor mainActor=new Actor(form.getFirstName(),form.getLastName());
+        Actor mainActor = new Actor(form.getFirstName(), form.getLastName());
         movie.setMainActor(mainActor);
 
         movieService.registerMovie(movie);

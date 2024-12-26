@@ -5,8 +5,6 @@ import com.mycompany.dvdstore.service.MovieServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/movie")
 public class MovieResource {
@@ -23,17 +21,17 @@ public class MovieResource {
     }
 
     @GetMapping
-    public Iterable<Movie> list(){
+    public Iterable<Movie> list() {
         return movieService.getMovieList();
     }
 
     @GetMapping("/{id}")
-    public Movie get(@PathVariable("id") long id){
+    public Movie get(@PathVariable("id") long id) {
         return movieService.getMovieById(id);
     }
 
     @PostMapping
-    public Movie add(@RequestBody Movie movie){
+    public Movie add(@RequestBody Movie movie) {
         return movieService.registerMovie(movie);
     }
 
