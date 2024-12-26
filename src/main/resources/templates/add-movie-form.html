@@ -13,15 +13,15 @@
     <div th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
     <p>Genre</p>
     <p>
-    <select th:field="*{genre}">
-        <option th:value="COMEDIE" th:text="Comédie"></option>
-        <option th:value="HORREUR" th:text="Horreur"></option>
-        <option th:value="THRILLER" th:text="Thriller"></option>
-        <option th:value="ACTION" th:text="Action"></option>
-        <option th:value="ROMANTIQUE" th:text="Romantique"></option>
-        <option th:value="DRAME" th:text="Drame"></option>
-        <option th:value="ANIMATION" th:text="Animation"></option>
-    </select>
+        <select th:field="*{genre}">
+            <option th:value="COMEDIE" th:text="Comédie"></option>
+            <option th:value="HORREUR" th:text="Horreur"></option>
+            <option th:value="THRILLER" th:text="Thriller"></option>
+            <option th:value="ACTION" th:text="Action"></option>
+            <option th:value="ROMANTIQUE" th:text="Romantique"></option>
+            <option th:value="DRAME" th:text="Drame"></option>
+            <option th:value="ANIMATION" th:text="Animation"></option>
+        </select>
     </p>
     <div th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
 
@@ -29,6 +29,17 @@
     <p><textarea rows="4" cols="50" th:field="*{description}"/></p>
     <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
 
+    <p>Prénom de l'acteur principal</p>
+    <p>
+        <input type="text" th:field="*{firstName}"/>
+    </p>
+    <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+
+    <p>Nom de l'acteur principal</p>
+    <p>
+        <input type="text" th:field="*{lastName}"/>
+    </p>
+    <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
     <input type="submit" value="Ajouter"/>
 </form>
 
