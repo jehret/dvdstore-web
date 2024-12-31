@@ -46,9 +46,6 @@ public class MovieController {
         movie.setGenre(form.getGenre());
         movie.setDescription(form.getDescription());
 
-        Actor mainActor=new Actor(form.getFirstName(),form.getLastName());
-        movie.setMainActor(mainActor);
-
         movieService.registerMovie(movie);
         return "movie-added";
     }
